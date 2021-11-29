@@ -117,3 +117,81 @@ correct1('L0nD0N 5orry');
      }
    }
    bmi2(80, 1.8);
+
+
+const names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
+
+function golfScore(par, strokes) {
+  if(strokes == 1) {
+    return names[strokes];
+  } else if(strokes <= par - 2) {
+    return names[strokes];
+  } else {
+    return "Change Me";
+  }
+}
+
+golfScore(1, 4);
+console.log(golfScore(1, 4));
+
+function sequentialSizes(val) {
+  let answer = "";
+switch(val) {
+  case 1:
+  case 2:
+  case 3:
+    answer = 'Low';
+    break;
+  case 4:
+  case 5:
+  case 6:
+    answer = 'Mid';
+    break;
+  case 7:
+  case 8:
+  case 9:
+    answer = 'High';
+    break;
+  default:
+    answer = 'yyyyps';
+    break;
+}
+  return answer;
+}
+
+sequentialSizes(1);
+console.log(sequentialSizes(8));
+
+
+//не работает
+function arrowArea(a,b) {
+  let d = Math.sqrt(a**2 + b**2) / 2;
+  let s = 0.5 * a * d;
+  console.log(d);
+  return s;
+}
+arrowArea(4, 2);
+console.log(arrowArea(4, 2));
+
+function reverseNumber(n) {
+  let number = Math.abs(n);
+  let res = [...number + ''];
+  let a = +res.reverse().join('');
+
+  if(n<0) {
+   return -1 * a; //именно умножить а не + 
+  }
+  return a;  //Или return n<0 ? -a : a; Тогда убираем if
+}
+reverseNumber(-123);
+console.log(reverseNumber(-123));
+
+//2 способ
+function reverseNumber1(n) {
+  let isNegative = n < 0;  
+  let reverseAsString = Math.abs(n).toString().split('').reverse().join('');
+  let result = Number(reverseAsString);
+  
+  return isNegative ? -result : result;
+}
+reverseNumber1(-123);
