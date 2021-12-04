@@ -42,7 +42,7 @@ correct1('L0nD0N 5orry');
   }
 
   switchItUp(2);
-  console.log(switchItUp(3));
+  // console.log(switchItUp(3));
 
   // или эту же задачу можно решить через обьекты
   function switchItUp(number){
@@ -97,7 +97,7 @@ correct1('L0nD0N 5orry');
   //2 способ через тернарный оператор
   function bmi1(weight, height) {
   const bmi  = weight/(height*height);
-  console.log(bmi);
+  // console.log(bmi);
   return bmi < 18.5 ? "Underweight" : bmi <=25 ? "Normal" : bmi <= 30 ? "Overweight" : "Obese";
   }
   bmi1(80, 1.8);
@@ -132,7 +132,7 @@ function golfScore(par, strokes) {
 }
 
 golfScore(1, 4);
-console.log(golfScore(1, 4));
+// console.log(golfScore(1, 4));
 
 function sequentialSizes(val) {
   let answer = "";
@@ -160,18 +160,20 @@ switch(val) {
 }
 
 sequentialSizes(1);
-console.log(sequentialSizes(8));
+// console.log(sequentialSizes(8));
 
 
 //не работает
 function arrowArea(a,b) {
   let d = Math.sqrt(a**2 + b**2) / 2;
-  let s = 0.5 * a * d;
-  console.log(d);
+  // let s = 0.5 * a * d;
+  let f = Math.sqrt(a**2-(b**2/4));
+  let s = b*f/2;
+  // console.log(d);
   return s;
 }
 arrowArea(4, 2);
-console.log(arrowArea(4, 2));
+// console.log(arrowArea(4, 2));
 
 function reverseNumber(n) {
   let number = Math.abs(n);
@@ -184,7 +186,7 @@ function reverseNumber(n) {
   return a;  //Или return n<0 ? -a : a; Тогда убираем if
 }
 reverseNumber(-123);
-console.log(reverseNumber(-123));
+// console.log(reverseNumber(-123));
 
 //2 способ
 function reverseNumber1(n) {
@@ -195,3 +197,182 @@ function reverseNumber1(n) {
   return isNegative ? -result : result;
 }
 reverseNumber1(-123);
+
+const myArray1 = [];
+let i = 5;
+while(i >= 0) {
+  myArray1.push(i);
+  i--;
+}
+
+
+const myArray = [];
+for(let i=1; i<=9; i++) {
+  if(i % 2 == 1) {
+   myArray.push(i);
+  }
+}
+// console.log(myArray);
+
+function arr(arr) {
+  let res = arr.sort((a, b) => {
+    return b - a;
+  })
+  let a = res[0] - res[1];
+  return a;
+}
+arr([5,6,1,16]);
+// console.log(arr([5,6,1,16]));
+
+function arr1(arr) {  //[5,6,1,16]
+  let a = Math.max.apply(null, arr);  //16  нашла наибольшее число в массиве
+  arr = arr.filter(item => item !== a); // [5,6,1] удалила наибольшее число 
+
+  let b = Math.max.apply(null, arr);  //6 нашла из оставшегося массива опять второе наибольшее число
+  let res = a - b;  //отняла разницу между первым большим и вторым большим числом
+
+  // console.log(res);
+  return res;
+}
+arr1([5,6,1,26]);
+// console.log(arr1([5,6,1,16]));
+
+
+function solution(a, b){
+  let res = '';
+  if(a.length < b.length) {
+    res = a + b + a;
+  } else {
+    res = b + a + b;
+  }
+  return res;
+}
+solution('478','56');
+
+function abbrevName(name){
+    let arr = name.split(' ');
+    let res = arr.map(item => {
+      return item[0];
+    })
+
+    return res.join('.');
+}
+abbrevName('Sam Frank');
+
+
+function array(arr) {
+  // let a = arr.split('');
+  // a.pop();
+  // a.shift();
+  // let b = a.join(' ');
+  // console.log(arr[0] + ' ' + arr[arr.length -1]);
+  // console.log(b);
+  for (let i=0; i<arr.length; i++) {
+    
+  }
+}
+array('1,2,5,9');
+console.log(array('1,2,5,9'));
+
+function part(x) {
+  const arr = ['ship', 'use', 'food'];
+  let num = x.filter(v => arr.includes(v)).length;
+  if(arr.some(v => x.includes(v))) return `Mine\'s a Pint ${'!'.repeat(num)}`;
+  return 'Lynn';
+}
+
+part(['part', 'goust', 'ship']);
+part(['part', 'goust']);
+
+// console.log(part(['part', 'goust', 'ship']));
+// console.log(part(['part', 'goust']));
+
+function arrayPlus(arr1, arr2) {
+  let arrMerge = [...arr1, ...arr2];
+  let res =0;
+  arrMerge.forEach(i => {
+      res += i;
+  });
+  return res;
+}
+arrayPlus([1,2,3], [4,5,6]);
+
+//считаем какое кол-во true в массиве
+function sheep(arr) {
+  let res = [];
+  arr.forEach(i => {
+      if(i) res.push(i);
+  })
+
+  return res.length;
+}
+sheep([true, true, false]);
+
+//2й способ короткий
+function sheep1(arr) {
+  return arr.filter(Boolean).length;
+}
+sheep1([true, true, false]);
+
+//получить число. сделать из него массив и реверс
+function dig(n) {
+  let str = String(n).split('');
+  let res = [];
+  for(let i=0; i<str.length; i++) {
+      res.push(Number(str[i]));
+  }
+ 
+  return res.reverse();
+}
+dig(123568);
+
+//2 способ короткий
+function dig1(n) {
+  return String(n).split('').map(Number).reverse();
+}
+dig1(125698);
+
+
+function aver(m) {
+  let res = 0;
+  m.map(i => {
+      res += i;
+  })
+  return res / m.length;
+}
+aver([2,2,2,2]);
+
+
+let number = function(array) {
+  let res = [];
+  array.map((item, index) => {
+      res.push(`${index + 1}: ${item}`);
+  })
+  console.log(array);
+  return res;
+}
+number(['f','d','t']);
+
+function arr(array) {
+  let res = array.flat();
+  res.sort((a,b) => {
+      return a-b;
+  })
+  return res;
+}
+arr([[1,2,5],[8,3,45]]);
+
+function mis(arr) {
+  let res = 0;
+  let sort = arr.sort((a,b) => {
+      return a-b;
+  })
+  sort.forEach((item, index) => {
+      if(index === item) {
+          res++;
+      }
+  })
+  return res;
+}
+mis([0,5,4,8,1,3,2,8,7,9]);
+console.log(mis([0,5,4,1,3,2,8,7,9]));
