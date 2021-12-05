@@ -272,7 +272,7 @@ function array(arr) {
   }
 }
 array('1,2,5,9');
-console.log(array('1,2,5,9'));
+// console.log(array('1,2,5,9'));
 
 function part(x) {
   const arr = ['ship', 'use', 'food'];
@@ -348,7 +348,6 @@ let number = function(array) {
   array.map((item, index) => {
       res.push(`${index + 1}: ${item}`);
   })
-  console.log(array);
   return res;
 }
 number(['f','d','t']);
@@ -375,4 +374,71 @@ function mis(arr) {
   return res;
 }
 mis([0,5,4,8,1,3,2,8,7,9]);
-console.log(mis([0,5,4,1,3,2,8,7,9]));
+// console.log(mis([0,5,4,1,3,2,8,7,9]));
+
+function array(str) {
+  return str.split(',').slice(1, -1).join(' ');
+}
+array('1,2,3'); 
+
+function big(arr) {
+  let n = Math.max(...arr); 
+  arr.splice(arr.indexOf(n), 1);
+  return n-Math.max(...arr);
+}
+big([5,9,14,26]);
+
+function smash(w) {
+  return w.join(' ');
+}
+smash(['hello', 'world']);
+
+
+function twoSort(s) {
+  let res = s.sort()[0];
+  let a = '';
+  for(let i=0; i<res.length; i++) {
+    a += res[i] + '***';
+  }
+  return a.slice(0, -3);
+}
+twoSort(["bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps"]);
+// console.log(twoSort(["bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps"]));
+
+function noSpace(x){
+ let arr = x.split(' '); //['8', 'j', '8', '', '', 'mBliB8g', '', 'imjB8B8', '', 'jl', '', 'B']
+ let res = '';
+ arr.map(i => {
+   if(i) {
+    res += i;
+   }
+ })
+
+ return res;
+}
+noSpace('8 j 8   mBliB8g  imjB8B8  jl  B');
+// console.log(noSpace('8 j 8   mBliB8g  imjB8B8  jl  B'));
+
+function well(x) {
+  let res = '';
+  let a = '';
+  x.filter(i => {
+    if(i.includes('good')) res++;
+  })
+  if(res === 1 || res === 2) a = 'Publish!';
+  if(res > 2) a = 'I smell a serites!';
+  if(res === '') a = 'Fail!';
+  return a;
+}
+well(['bad', 'bad', 'bad', 'bad']);
+// console.log(well(['bad', 'bad', 'bad', 'bad']));
+
+function mix(x) {
+  let res = 0;
+  x.map(i=> {
+    res += Number(i);
+  })
+  return res;
+}
+mix([9, 3, '7', '3']);
+console.log(mix([9, 3, '7', '3']));
