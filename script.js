@@ -441,4 +441,88 @@ function mix(x) {
   return res;
 }
 mix([9, 3, '7', '3']);
-console.log(mix([9, 3, '7', '3']));
+// console.log(mix([9, 3, '7', '3']));
+
+function small(arr, limit) {
+  let res = false;
+  arr.filter(i => {
+    if(i <= limit) {
+      res = true;
+    }
+  })
+  return res;
+}
+small([66,201], 200);
+console.log(small([66,201], 200));
+
+
+const is = function(arr) {
+  let res = '';
+  arr.map(i => {
+      if(Math.sqrt(i)) {
+          return res = true;
+      } else if(!Math.sqrt(i)){
+          return res = false;
+      }
+  })
+  return res;
+}
+is([1,4,9,16,25,36]);
+// console.log(is([1,4,9,16,25,36]));
+// console.log(is([1,2,3,4,5,6]));
+
+function even(arr, num) {
+  let rev = arr.reverse();
+  let res=[];
+  rev.filter(i => {
+      if(i %2 === 0) res.push(i);
+  })
+  res.splice(num);
+  return res.reverse();
+}
+even([-22,5,3,11,26,-6,-7,-8,-9,-8,-26],2);
+// console.log(even([-22,5,3,11,26,-6,-7,-8,-9,-8,-26],2));
+
+function oddEven (arr) {
+  let res = arr.reduce((total, amount) => {
+      return total + amount;
+  })
+  if(res % 2 === 0) res ='even';
+  if(res % 2) res = 'odd';
+
+  return res;
+}
+oddEven([0,1,2,1]);
+// console.log(oddEven([0,1,2,1]));
+
+function small (arr, pos) {
+  let res = arr.sort((a,b) => {
+      return a - b;
+  })
+  return res[pos-1];
+}
+small([15,20,7,10,4,3],3);
+// console.log(small([15,20,7,10,4,3],3));
+
+function check(arr1, arr2) {
+  let res = 0;
+  // for(let i=0; i<arr1.length; i++) {
+  //     for(let h=0; h<arr2.length; h++) {
+  //         if(arr1[i] === arr2[h]) res += 4;
+  //         if(arr1[i] !== arr2[h]) res -= 1;
+  //         if(arr1[i] === ' ' || arr2[h] === ' ') res += 0;
+  //     }
+  // }
+  for(let i=0; i<arr1.length; i++) {
+      if(arr1[i] === arr2[i]) {
+          res += 4;
+      } else if(arr2[i] === '') {
+          res += 0;
+      } else {
+          res -= 1;
+      }
+  }
+  return res;
+}
+check(['a','a','b','b'], ['a','c','b','d']);
+console.log(check(['a','a','b','b'], ['a','c','b','d']));
