@@ -506,13 +506,6 @@ small([15,20,7,10,4,3],3);
 
 function check(arr1, arr2) {
   let res = 0;
-  // for(let i=0; i<arr1.length; i++) {
-  //     for(let h=0; h<arr2.length; h++) {
-  //         if(arr1[i] === arr2[h]) res += 4;
-  //         if(arr1[i] !== arr2[h]) res -= 1;
-  //         if(arr1[i] === ' ' || arr2[h] === ' ') res += 0;
-  //     }
-  // }
   for(let i=0; i<arr1.length; i++) {
       if(arr1[i] === arr2[i]) {
           res += 4;
@@ -522,7 +515,47 @@ function check(arr1, arr2) {
           res -= 1;
       }
   }
+
+  return res > 0 ? res : 0;
+}
+check(['a','a','b','b'], ['a','c','b','d']); //6
+// console.log(check(['a','a','b','b'], ['a','c','b','d']));
+
+function smallEnough(a, limit) {
+  let res = a.every(item => {
+    if(item <= limit) {
+      return true;
+    }
+  })
   return res;
 }
-check(['a','a','b','b'], ['a','c','b','d']);
-console.log(check(['a','a','b','b'], ['a','c','b','d']));
+smallEnough([66,195],200);
+// console.log(smallEnough([66,195],200));
+
+function zeroArray(m, n) {
+  let newArray = [];
+  let row = [];
+  for (let i = 0; i < m; i++) {
+      let row = [];
+    for (let j = 0; j < n; j++) {
+      row.push(0);
+    }
+    newArray.push(row);
+  }
+  return newArray;
+}
+zeroArray(3, 2);
+// console.log(zeroArray(3, 2));
+
+
+function repeatStr(n, s) {
+  let res = '';
+  for(let i=0; i<n; i++) {
+    res += s;
+  }
+  return res;
+}
+repeatStr(3, '*');
+// console.log(repeatStr(3, "*"));
+
+// git add .
