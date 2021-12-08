@@ -558,4 +558,50 @@ function repeatStr(n, s) {
 repeatStr(3, '*');
 // console.log(repeatStr(3, "*"));
 
+var list1 = [
+  { firstName: 'Daniel', lastName: 'J.', country: 'Aruba', continent: 'Americas', age: 42, language: 'JavaScript2' },
+  { firstName: 'Kseniya', lastName: 'T.', country: 'Belarus', continent: 'Europe', age: 22, language: 'JavaScript' },
+  { firstName: 'Hanna', lastName: 'L.', country: 'Hungary', continent: 'Europe', age: 65, language: 'JavaScript' },
+];
+function one(a) {
+  // let b = a.every(item => {
+  //   let c = new Set(item.language);
+  //   console.log(c);
+  // })
+ 
+  // return b;
+}
+one(list1);
 
+function countDevelopers(list) {
+  let a = '';
+  list.forEach(item => {
+    if(item.continent === 'Europe') {
+      return a = 1;
+    } else {
+      return a = 0;
+    }
+  })
+  console.log(a);
+  return a;
+}
+countDevelopers(list1);
+
+function descendingOrder(n){
+  let a = String(n).split('').sort((a,b) => {
+    return b - a;
+  });
+  console.log(+a.join('')); 
+  return +a.join('');
+}
+descendingOrder(5689);
+
+function reverse(n){
+  let a = '';
+  n.map(item => {
+    item += a;
+  })
+  console.log(a);
+  return a;
+}
+reverse(856247);
