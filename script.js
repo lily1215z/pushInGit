@@ -582,7 +582,7 @@ function countDevelopers(list) {
       return a = 0;
     }
   })
-  console.log(a);
+  // console.log(a);
   return a;
 }
 countDevelopers(list1);
@@ -591,17 +591,79 @@ function descendingOrder(n){
   let a = String(n).split('').sort((a,b) => {
     return b - a;
   });
-  console.log(+a.join('')); 
+  // console.log(+a.join('')); 
   return +a.join('');
 }
 descendingOrder(5689);
 
 function reverse(n){
-  let a = '';
-  n.map(item => {
-    item += a;
-  })
-  console.log(a);
-  return a;
+  // let a = '';
+  // n.map(item => {
+  //   item += a;
+  // })
+  // console.log(a);
+  // return a;
 }
 reverse(856247);
+
+//нужно посчитать кол-во положительных чисел и сумму отрицательных чисел. Если массив null или пустой то выдать [].
+
+function countPositivesSumNegatives (input) {
+  if (!input || !input.length) return [];
+  let pos = input.filter(item => item > 0);  //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  let neg = input.filter(item => item <= 0);  //[-11, -12, -13, -14, -15]
+  return [pos.length, Math.floor(neg.reduce((a, b) => a + b, 0))]
+}
+countPositivesSumNegatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]);   //[10, -65]
+countPositivesSumNegatives([]);  //[]
+// console.log(countPositivesSumNegatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]));
+// console.log(countPositivesSumNegatives([]));
+
+function squareSum(numbers){
+  let res = 0;
+  numbers.map(item => {
+    res += item*item;
+  })
+  return res;
+}
+squareSum([0, 3, 4, 5]);
+// console.log(squareSum([1,2]));
+
+function first(arr, n) {
+  if(n === undefined) {
+    return arr[0];
+  } else {
+    return arr.slice(0, n);
+  }
+}
+first(['a', 'b', 'c', 'd', 'e']);
+
+function divisibleBy(numbers, divisor){
+  let res = numbers.filter(item => {
+    if(item % divisor === 0) {
+      return true;
+    }
+  })
+  return res;
+}
+divisibleBy([1,2,3,4,5,6], 2);
+
+function mergeArrays(arr1, arr2) {
+  let res = [...arr1, ...arr2];
+  res.sort((a,b) => {
+    return a - b;
+  })
+  return [...new Set(res)];
+}
+mergeArrays([1,3,5,7,9,11,12], [1,2,3,4,5,10,12]); //[1,2,3,4,5,7,9,10,11,12]
+
+// function countBy(x, n) {
+//   let z = [];
+//     for(let i = 1; i < n; i+=x) {
+//     z.push(i);
+//   }
+
+//   return z;
+// }
+// countBy(2,5);
+// console.log(countBy(2,5));
