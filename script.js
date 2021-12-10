@@ -671,14 +671,12 @@ return res;
 // const falsyOrTruthy = a => a.filter(e=> a.length%2 ? !e : e);
 
 falsyOrTruthy([false,NaN,NaN,4,5,{}]);
-// console.log(falsyOrTruthy([false,NaN,NaN,4,5,{}]));
 
 function arrCheck(value) {
   const res = value.every(item => Array.isArray(item));
   return res;
 }
 arrCheck([[],{}]);
-// console.log(arrCheck([[],{}]));
 
 function countBy(x, n) {
   var z = [];
@@ -688,7 +686,6 @@ function countBy(x, n) {
   return z;
 }
 countBy(2,5);
-console.log(countBy([2,5]));
 
 function even(num) {
   let res = 0;
@@ -700,7 +697,6 @@ function even(num) {
   return res * num[num.length-1] ? res * num[num.length-1] : 0;
 }
 even([2,3,4,5]);
-// console.log(even([2,3,4,5]));
 
 function math(n, k) {
   let res = [0];
@@ -712,7 +708,6 @@ function math(n, k) {
 //    }
 }
 math(11,2);
-console.log(math(11,2));
 
 const data = [
   {name: 'Alex', language: 'JavaScript', age: 36},
@@ -731,4 +726,15 @@ function same(data) {
   return res;
 }
 same(data);
-console.log(same(data));
+
+function maxDiff(list) {
+  if(list.length === 0 || list.length === 1) {
+    return 0;
+  }
+    let max = Math.max(...list);
+    let min = Math.min(...list);
+    return max - min;
+};
+maxDiff([0, 1, 2, 3, 4, 5, 6]);
+// console.log(maxDiff([0, 1, 2, 3, 4, 5, 6])); //6
+console.log(maxDiff([]));
