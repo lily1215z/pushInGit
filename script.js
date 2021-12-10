@@ -657,13 +657,78 @@ function mergeArrays(arr1, arr2) {
 }
 mergeArrays([1,3,5,7,9,11,12], [1,2,3,4,5,10,12]); //[1,2,3,4,5,7,9,10,11,12]
 
-// function countBy(x, n) {
-//   let z = [];
-//     for(let i = 1; i < n; i+=x) {
-//     z.push(i);
-//   }
+function falsyOrTruthy(arr) {
+  let res = arr.filter(item => {
+    if(arr.length %2) {
+      return !item;
+    } else {
+      return item;
+    }
+  })
+return res;
+}
+//короткий варик
+// const falsyOrTruthy = a => a.filter(e=> a.length%2 ? !e : e);
 
-//   return z;
-// }
-// countBy(2,5);
-// console.log(countBy(2,5));
+falsyOrTruthy([false,NaN,NaN,4,5,{}]);
+// console.log(falsyOrTruthy([false,NaN,NaN,4,5,{}]));
+
+function arrCheck(value) {
+  const res = value.every(item => Array.isArray(item));
+  return res;
+}
+arrCheck([[],{}]);
+// console.log(arrCheck([[],{}]));
+
+function countBy(x, n) {
+  var z = [];
+  for (i = 1; i <= n; i++) {
+      z.push(x * i);
+  }
+  return z;
+}
+countBy(2,5);
+console.log(countBy([2,5]));
+
+function even(num) {
+  let res = 0;
+  num.filter((item, index) => {
+      if(index %2 === 0) {
+          res += item;
+      }
+  })
+  return res * num[num.length-1] ? res * num[num.length-1] : 0;
+}
+even([2,3,4,5]);
+// console.log(even([2,3,4,5]));
+
+function math(n, k) {
+  let res = [0];
+  for(let i = 1; i <= n; i++) res.push(i);
+  return res.sort().indexOf(k);
+  //или через цикл
+//    for(let i = 0; i < res.length; i++) {
+//        if(res[i] === k) return i + 1;
+//    }
+}
+math(11,2);
+console.log(math(11,2));
+
+const data = [
+  {name: 'Alex', language: 'JavaScript', age: 36},
+  {name: 'Lime', language: 'JavaScript', age: 96},
+  {name: 'Leo', language: 'JavaScript', age: 52},
+]
+function same(data) {
+  let a = data[0].language;
+  let res = data.every(item => {
+      if(item.language === a) {
+          return true;
+      } else {
+          return false;
+      }
+  })
+  return res;
+}
+same(data);
+console.log(same(data));
