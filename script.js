@@ -417,7 +417,6 @@ function noSpace(x){
  return res;
 }
 noSpace('8 j 8   mBliB8g  imjB8B8  jl  B');
-// console.log(noSpace('8 j 8   mBliB8g  imjB8B8  jl  B'));
 
 function well(x) {
   let res = '';
@@ -431,7 +430,7 @@ function well(x) {
   return a;
 }
 well(['bad', 'bad', 'bad', 'bad']);
-// console.log(well(['bad', 'bad', 'bad', 'bad']));
+
 
 function mix(x) {
   let res = 0;
@@ -441,7 +440,8 @@ function mix(x) {
   return res;
 }
 mix([9, 3, '7', '3']);
-// console.log(mix([9, 3, '7', '3']));
+console.log(mix([9, 3, '7', '3']));
+
 
 function small(arr, limit) {
   let res = false;
@@ -710,9 +710,9 @@ function math(n, k) {
 math(11,2);
 
 const data = [
-  {name: 'Alex', language: 'JavaScript', age: 36},
-  {name: 'Lime', language: 'JavaScript', age: 96},
-  {name: 'Leo', language: 'JavaScript', age: 52},
+  {name: 'Alex', language: 'JavaScript', age: 36, githubAdmin: 'yes'},
+  {name: 'Lime', language: 'JavaScript', age: 96, githubAdmin: 'no'},
+  {name: 'Leo', language: 'JavaScript', age: 52, githubAdmin: 'yes'},
 ]
 function same(data) {
   let a = data[0].language;
@@ -736,5 +736,174 @@ function maxDiff(list) {
     return max - min;
 };
 maxDiff([0, 1, 2, 3, 4, 5, 6]);
-// console.log(maxDiff([0, 1, 2, 3, 4, 5, 6])); //6
-console.log(maxDiff([]));
+
+// function sumEvenNumbers(input) {
+  // let res = 0;
+  // input.filter(i => {
+  //   if(i%2 == 0) res += i;
+  // })
+  // return res;
+// }
+
+// function sumEvenNumbers(a) {
+//   return a.reduce((a, b) => a + (b % 2 == 0 && b), 0)
+// }
+// const sumEvenNumbers = (input) => input.reduce((acc, cur) => cur % 2 === 0 ? cur + acc : acc, 0);
+function sumEvenNumbers(arr) {
+  return arr.reduce((acc, item) => {
+    if(item %2 === 0) {
+      return acc + item;
+    } else {
+      return acc;
+    }
+  },0);
+}
+
+sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+
+function filter_list(l) {
+  return l.filter(i => typeof i !== 'string' || i === 0);
+}
+filter_list([1,2,'aasf','1','123',123,0]);
+
+
+function uniqueSum(lst){
+  let unique = [...new Set(lst)];
+  if(lst.length === 0) return null;
+  return unique.reduce((acc, i) => acc + i, 0);
+}
+uniqueSum([]);
+
+function findAdmin(list, lang) {
+  let res = [];
+  list.map(item => {
+    if(item.language === lang && item.githubAdmin === 'yes') {
+      res.push(item);
+    } 
+  })
+  return res;
+}
+findAdmin(data, 'JavaScript');
+
+var list1 = [
+  { firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java' },
+  { firstName: 'Lukas', lastName: 'X.', country: 'Croatia', continent: 'Europe', age: 35, language: 'Python' },
+  { firstName: 'Madison', lastName: 'U.', country: 'United States', continent: 'Americas', age: 32, language: 'Ruby' } 
+];
+
+
+function greetDevelopers(list) {
+  list.forEach(v=> v.greeting= `Hi ${v.firstName}, what do you like the most about ${v.language}?`)
+  return list
+}
+greetDevelopers([list1]);
+console.log(greetDevelopers([list1]));
+
+//================ Type Scripte =======
+// const isFetching: boolean = true;
+// const isLoading: boolean = false;
+
+// const int: number = 42;
+// const float: number = 4.2;
+// const num: number = 3e10;
+
+// const message: string = 'Hello';
+
+// const numArray: number[] = [1,2,3];
+// const numArray2: Array<number> = [1,2,3];
+
+// const word: string[] = ['Hello', 'Type'];
+
+// //Tuple - тип данных в TS
+// const contact: [string, number] = ['Vlad', 12568];
+
+// //Any - тип данных в TS Но в ней нет смысла. это как обычный JS
+// let variable: any = 42;
+// // ...
+// variable = 'New string';
+// variable = [];
+
+// //====== тип на примере функции. Тип void - означает что функция ничего нам не вернет
+// function sayName(name: string): void {
+//   console.log(name);
+// }
+// sayName(name: 'Leo');
+
+// //Never тип данных в TS. Когда используем этот тип? - когда функция выдает нам ошибку и никогда 
+// // не заканчивает свое выполнение либо она постоянно что либо делает
+// function throwError(message: string): never {
+//   throw new Error(message)
+// }
+// //эта функция не завершится никогда поэтому указываем тип never
+// function infinite(): never {
+//   while(true) {
+//   }
+// }
+
+// //конструкция кот позволяет создавать свои типы в TS, можем создавать примитивные типы и создавать для них элеосы
+// //используем спец слово type
+// type Login = string
+// const log: Login = 'admin';
+// //и через type можем создать смешаный тип: строка или число
+// type ID = string | number
+
+// type SomeType = string | null | undefined
+// //но если мы прописываем пустой тип для функции  и ничегоне не возвращает то лучше использовать тип void
+
+// //Interface По сути мы создаем некоторый тип кот служит для обьектов или для классов
+// //где мы указываем какие поля какие функции и какие эл вообще должны присутствовать 
+// //у этих обьектов. Интерфейсы нив о сто не компилируются и нужны только на этапе разработки. 
+// //Чтоб создать интерфейс используем ключевое слово Interface. Интерфейс может только читать, не можем потом изменять
+// //Если параметр не обязательный то пишу знак вопроса - ?. Когда создали интерфейт теперь
+// //можем создавать различные обьекты типа Rect
+// interface Rect {
+//   readonly id: string  //только для чтения, не можем потом присвоить др значение
+//   color?: string
+//   size: {
+//     width: number
+//     height: number
+//   }
+// }
+// const rect1: Rect = {
+//   id: '123',
+//   size: {
+//     width: 20,
+//     height: 30
+//   },
+//   color: '#ccc' //могу здесь не писать а потом присвоить после
+// }
+// rect1.color = 'black'
+// //могу др переменную применить к типу Rect или считается этим типом
+// const rect3 = {} as Rect
+// const rect4 = <Rect>{}        //это старая запись</Rect>
+
+// //Наследование интерфейса. Можем наследовать интерфейс
+// interface RectWithArea extends Rect {
+//   getArea: () => number   //видео Минина 28 мин ,,TypeScript - Быстрый курс за 70 минут
+// }
+// //Функции. Напрмиер есть функция кот принмиает 2 числа кот будут слаживаться 
+// //и вернуть должна число поэтому вконце опять же пропишу number
+// function add(a: number, b: number): number {
+//   return a + b;
+// }
+// //generic типы
+// //например одна и та же функция может работать с разными типами данных.
+// //массивы могут состоять из разных типов, т.е. Tuple типов. И мы здесь можем
+// //использовать generic тип. Указываем что данная функция работает с типом Т reverse<T>, потом 
+// //мы принимает массив с типом Т array: T[] и возвращать будем также некоторый массив типа Т-  : T[] и данный параметр
+// //будет динамически подстраиваться под те значения кот мы передаем
+// const arrNum: Array<number> = [1,2,3]
+// const arrStr: Array<string> = ['Hello', 'Leo']
+
+// function reverse<T>(array: T[]): T[] {
+//   return array.reverse();
+// }
+// reverse(arrNum)
+// reverse(arrStr)
+// //теперь мы можем вызывать функцию реверс с разными типами данных и все будет раб корректно
+// //т.к. мы указали некоторый generic тип кот будет подстраиваться под контент кот есть в этом массиве
+
+
+
+
