@@ -798,7 +798,7 @@ function greetDevelopers(list) {
   return list
 }
 greetDevelopers([list1]);
-console.log(greetDevelopers([list1]));
+// console.log(greetDevelopers([list1]));
 
 //================ Type Scripte =======
 // const isFetching: boolean = true;
