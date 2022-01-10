@@ -800,6 +800,30 @@ function greetDevelopers(list) {
 greetDevelopers([list1]);
 // console.log(greetDevelopers([list1]));
 
+//1 неделя от 3 января 2022
+function monkeyCount(n) {
+  let res = [];
+  for(let i = 1; i<=n; i++) {
+      res.push(i);
+  }
+  return res;
+}
+monkeyCount(15);
+// console.log(monkeyCount(15));
+
+function grow(arr) {
+  return arr.reduce((acc, item) => {
+      return acc * item;
+  })
+}
+grow([1,2,3]);
+console.log(grow([1,2,3]));
+
+
+
+
+
+
 //================ Type Scripte =======
 // const isFetching: boolean = true;
 // const isLoading: boolean = false;
